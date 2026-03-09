@@ -1,0 +1,74 @@
+:root {
+  --bg: #070c18;
+  --card: #111a2e;
+  --line: #273858;
+  --text: #ebf2ff;
+  --muted: #a6b7d9;
+  --primary: #4dd6ff;
+  --danger: #ff4d61;
+  --safe: #2bd794;
+}
+* { box-sizing: border-box; }
+body { margin: 0; font-family: Inter, system-ui, sans-serif; background: radial-gradient(circle at top right, #12203a 0%, var(--bg) 45%); color: var(--text); }
+
+.hero {
+  display: flex; justify-content: space-between; align-items: center; gap: 1rem;
+  padding: 1rem 1.25rem; border-bottom: 1px solid var(--line); background: rgba(11, 19, 36, 0.85);
+  position: sticky; top: 0; backdrop-filter: blur(6px); z-index: 10;
+}
+.tag { margin: 0; color: var(--primary); font-weight: 700; }
+h1 { margin: 0.2rem 0; }
+.subtitle { margin: 0; color: var(--muted); }
+
+.hero-actions { display: flex; gap: 0.5rem; }
+.mode { border: none; border-radius: 10px; padding: 0.7rem 1rem; font-weight: 700; cursor: pointer; background: #2a3f66; color: #dce7ff; }
+.mode.active { background: var(--safe); color: #04261a; }
+.mode.danger.active { background: var(--danger); color: #30040a; }
+
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 1rem; padding: 1rem; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 1rem; }
+.card h2 { margin-top: 0; font-size: 1.08rem; }
+.muted { color: var(--muted); }
+.small { font-size: 0.85rem; }
+
+label { display: block; margin: 0.6rem 0 0.3rem; color: var(--muted); }
+input { width: 100%; padding: 0.72rem; border-radius: 10px; border: 1px solid #355084; background: #0d1628; color: var(--text); font-size: 1rem; }
+
+.row { margin-top: 0.6rem; display: flex; gap: 0.6rem; align-items: center; flex-wrap: wrap; }
+.btn { border: none; border-radius: 10px; padding: 0.7rem 0.95rem; font-weight: 700; cursor: pointer; }
+.btn.primary { width: 100%; background: var(--primary); color: #022532; }
+.btn.secondary { background: #314b7e; color: #eff5ff; }
+.actions { display: grid; gap: 0.55rem; margin-top: 0.7rem; }
+
+.status-grid { margin-top: 0.8rem; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.55rem; }
+.status-grid article { background: #0d1628; border: 1px solid #314b7e; border-radius: 10px; padding: 0.55rem; }
+.status-grid h3 { margin: 0 0 0.2rem; font-size: 0.82rem; color: var(--muted); }
+.status-grid p { margin: 0; font-weight: 700; }
+
+.between { display: flex; justify-content: space-between; align-items: center; }
+.pill { font-size: 0.75rem; background: #20355f; border: 1px solid #365b99; border-radius: 100px; padding: 0.2rem 0.6rem; }
+#map { min-height: 260px; border-radius: 12px; margin-top: 0.5rem; border: 1px dashed #3c5f9f; display: grid; place-items: center; text-align: center; color: var(--muted); background: #0c1424; }
+
+.hospital-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.6rem; }
+.hospital-item { background: #0d1628; border: 1px solid #355084; border-radius: 10px; padding: 0.65rem; }
+.hospital-item button { margin-top: 0.45rem; width: 100%; border: none; background: #385c97; color: white; padding: 0.5rem; border-radius: 8px; cursor: pointer; }
+
+.alert-columns { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.6rem; }
+ul { padding-left: 1rem; margin: 0.35rem 0 0; }
+.notice { margin-top: 0.7rem; border-top: 1px solid var(--line); padding-top: 0.6rem; }
+
+.dashboard-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.55rem; }
+.dashboard-stats article { background: #0d1628; border: 1px solid #355084; border-radius: 10px; padding: 0.6rem; text-align: center; }
+.dashboard-stats h3 { margin: 0; font-size: 1.15rem; }
+.dashboard-stats p { margin: 0.25rem 0 0; color: var(--muted); font-size: 0.8rem; }
+.timeline { margin: 0.8rem 0 0; padding-left: 1rem; color: #d3e3ff; }
+.timeline li { margin-bottom: 0.35rem; }
+
+footer { text-align: center; color: var(--muted); padding: 0.6rem 1rem 1rem; }
+
+@media (max-width: 700px) {
+  .hero { position: static; flex-direction: column; align-items: flex-start; }
+  .hero-actions { width: 100%; }
+  .hero-actions .mode { flex: 1; }
+  .status-grid, .dashboard-stats { grid-template-columns: 1fr; }
+}
