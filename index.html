@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LifeLine AI | Smart Emergency Ambulance Navigation</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="hero">
+    <div>
+      <p class="tag">🚑 Emergency-First Smart Mobility</p>
+      <h1>LifeLine AI</h1>
+      <p class="subtitle">Fast, simple ambulance routing with green-corridor traffic support.</p>
+    </div>
+    <div class="hero-actions">
+      <button id="normalModeBtn" class="mode active">Normal Mode</button>
+      <button id="emergencyModeBtn" class="mode danger">Emergency Mode</button>
+    </div>
+  </header>
+
+  <main class="grid">
+    <section class="card control-card">
+      <h2>Driver Console</h2>
+      <p class="muted">1-tap workflow designed for emergency driving conditions.</p>
+
+      <label for="locationInput">Current area</label>
+      <input id="locationInput" value="Ambattur" placeholder="Say or type location" />
+
+      <div class="row">
+        <button id="voiceBtn" class="btn secondary">🎤 Voice Fill</button>
+        <span id="voiceStatus" class="muted">Voice ready</span>
+      </div>
+
+      <div class="actions">
+        <button id="findHospitalsBtn" class="btn primary">Find Nearby Hospitals</button>
+        <button id="activateRouteBtn" class="btn primary">Activate Smart Route</button>
+      </div>
+
+      <div class="status-grid">
+        <article>
+          <h3>Selected Hospital</h3>
+          <p id="selectedHospital">Not selected</p>
+        </article>
+        <article>
+          <h3>ETA</h3>
+          <p id="eta">-</p>
+        </article>
+        <article>
+          <h3>Green Corridor</h3>
+          <p id="corridorState">Off</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="card map-card">
+      <div class="between">
+        <h2>Live Map</h2>
+        <span class="pill" id="mapState">Demo mode</span>
+      </div>
+      <div id="map">
+        <p>Google Maps integration point.<br />Add API key to enable full navigation map.</p>
+      </div>
+      <p class="muted small">Includes hook for route lines, traffic layer, and rerouting.</p>
+    </section>
+
+    <section class="card hospital-card">
+      <h2>Smart Hospital Ranking</h2>
+      <p class="muted">Ranked by distance + traffic + emergency capacity.</p>
+      <ul id="hospitalList" class="hospital-list"></ul>
+    </section>
+
+    <section class="card alerts-card">
+      <h2>Emergency Alerts</h2>
+      <div class="alert-columns">
+        <div>
+          <h3>Traffic Signals</h3>
+          <ul id="signalAlerts"></ul>
+        </div>
+        <div>
+          <h3>Vehicles Ahead</h3>
+          <ul id="vehicleAlerts"></ul>
+        </div>
+      </div>
+      <div class="notice">
+        <h3>Hospital Notification</h3>
+        <p id="hospitalNotice">No notification sent.</p>
+      </div>
+    </section>
+
+    <section class="card dashboard-card">
+      <h2>Hackathon Control Dashboard</h2>
+      <div class="dashboard-stats">
+        <article><h3 id="activeAmbulances">1</h3><p>Active Ambulances</p></article>
+        <article><h3 id="signalsPreempted">0</h3><p>Signals Preempted</p></article>
+        <article><h3 id="avgResponse">11 min</h3><p>Avg Response (demo)</p></article>
+      </div>
+      <ol class="timeline" id="eventTimeline"></ol>
+    </section>
+  </main>
+
+  <footer>
+    <p>LifeLine AI • Built for fast emergency decisions • Simple UX saves time and lives.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
